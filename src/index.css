@@ -5,6 +5,8 @@ body {
 	color: white;
 }
 
+/* TASK LIST */
+
 .task-list {
 	display: flex;
 	flex-direction: column;
@@ -15,49 +17,97 @@ body {
 	background-color: rgba(168, 168, 168, 0.333);
 }
 
-.task-list h2,
-.custom-task-form {
+.task-list h2 {
 	padding: 0px 10px;
 	position: relative;
 	top: -8px;
 }
 
-.custom-task-form__name {
-	height: 20px;
-	width: 60%;
-}
-
-.custom-task-form__pts {
-	height: 20px;
-	width: 20%;
-	margin-left: 20px;
-}
-
-button {
-	height: 28px;
-	width: 28px;
-	background-color: rgb(1, 150, 187);
-	color: white;
-	font-size: 20px;
-	text-align: center;
-	padding: 0px;
-	margin: 0px;
-}
-
-.task-list__task,
-.custom-task-form {
+.task-list__task {
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
 	align-items: center;
 	padding: 0px 10px;
+
+	border-top: 1px solid gray;
 }
 
 .task-list__task h5 {
 	width: 70%;
 }
 
+.task-list__task-checkbox {
+	width: 20px;
+	height: 20px;
+}
+
 .complete {
 	color: rgba(255, 255, 255, 0.328);
 	text-decoration: line-through;
+}
+
+/* CUSTOM TASK FORM */
+
+.custom-task-form {
+	position: relative;
+	top: 50px;
+	border-radius: 10px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	padding: 0px 10px;
+
+	background-color: rgba(168, 168, 168, 0.333);
+	width: 380px;
+	height: 250px;
+}
+
+.custom-task-form h2 {
+	text-align: center;
+	position: relative;
+	top: -15px;
+}
+
+.custom-task-form__name {
+	height: 20px;
+	width: 98%;
+	margin: 0px auto;
+}
+
+.custom-task-form__pts {
+	height: 20px;
+	width: 20%;
+
+	position: relative;
+	top: 0;
+}
+
+.custom-task-form span {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+
+	height: 20px;
+}
+
+.custom-task-form__submit {
+	height: 28px;
+	width: 50px;
+	background-color: rgb(1, 150, 187);
+	color: white;
+	font-size: 15px;
+	text-align: center;
+	padding: 0px;
+	margin: 0px;
+	border-radius: 5px;
+
+	position: relative;
+	left: 331px;
+}
+
+.custom-task-form__submit:hover {
+	background-color: white;
+	color: rgb(1, 150, 187);
 }
