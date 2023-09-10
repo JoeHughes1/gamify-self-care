@@ -2,6 +2,7 @@ import { useState } from "react";
 import React from "react";
 import CustomAddTask from "./CustomAddTask";
 import TaskList from "./TaskList";
+import AddNewTask from "./AddNewTask";
 
 export default function App() {
 	const [tasks, setTasks] = useState([]);
@@ -27,8 +28,13 @@ export default function App() {
 		]);
 
 		setTaskName("");
+	}
 
-		console.log(tasks);
+	//handles clicking on default task from ADD NEW TASK list
+	function handleAddNewTask(task) {
+		setTasks([...tasks, task]);
+
+		console.log(task);
 	}
 
 	return (
@@ -49,6 +55,9 @@ export default function App() {
 					frequency={frequency}
 					setFrequency={setFrequency}
 				/>
+			</div>
+			<div>
+				<AddNewTask handleAddNewTask={handleAddNewTask} />
 			</div>
 		</>
 	);
