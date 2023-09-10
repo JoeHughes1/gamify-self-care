@@ -4,8 +4,6 @@ export default function CustomAddTask({
 	onSubmit,
 	taskName,
 	setTaskName,
-	points,
-	setPoints,
 	repeat,
 	setRepeat,
 	frequency,
@@ -20,13 +18,6 @@ export default function CustomAddTask({
 				className="custom-task-form__name"
 				value={taskName}
 				onChange={(e) => setTaskName(e.target.value)}
-			></input>
-			<input
-				type="number"
-				placeholder="points"
-				className="custom-task-form__pts"
-				value={points}
-				onChange={(e) => setPoints(e.target.value)}
 			></input>
 
 			<span>

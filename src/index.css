@@ -1,3 +1,7 @@
+:root {
+	--dark-blue: rgb(1, 150, 187);
+}
+
 body {
 	font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
 		"Lucida Sans Unicode", Geneva, Verdana, sans-serif;
@@ -21,10 +25,22 @@ li {
 	background-color: rgba(168, 168, 168, 0.333);
 }
 
-.task-list h2 {
+.task-list__header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
 	padding: 0px 10px;
+}
+
+.task-list h2 {
 	position: relative;
-	top: -8px;
+}
+
+.task-list__add-button {
+	background-color: var(--dark-blue);
+	color: white;
+	width: 30px;
+	height: 30px;
 }
 
 .task-list__task {
@@ -113,7 +129,7 @@ li {
 .custom-task-form__submit {
 	height: 28px;
 	width: 50px;
-	background-color: rgb(1, 150, 187);
+	background-color: var(--dark-blue);
 	color: white;
 	font-size: 15px;
 	text-align: center;
@@ -127,7 +143,7 @@ li {
 
 .custom-task-form__submit:hover {
 	background-color: white;
-	color: rgb(1, 150, 187);
+	color: var(--dark-blue);
 	cursor: pointer;
 }
 
@@ -153,29 +169,42 @@ li {
 }
 
 .default-task {
-	width: 90%;
+	width: 95%;
 	display: flex;
 	flex-direction: row;
+	padding: 0px 10px;
 	align-items: center;
 	justify-content: space-between;
+	border-radius: 10px;
 }
 
 .default-task:hover {
-	background-color: rgba(96, 160, 181, 0.565);
+	background-color: var(--dark-blue);
 	cursor: pointer;
 }
 
 .add-custom-task-button {
 	width: 90%;
+	height: 40px;
 	display: flex;
 	flex-direction: row;
 	align-items: center;
 	justify-content: center;
 	background-color: rgb(1, 150, 187);
+	border-radius: 8px;
+	margin: 10px 0px;
 }
 
 .add-custom-task-button:hover {
 	cursor: pointer;
 	background-color: white;
-	color: rgb(1, 150, 187);
+	color: var(--dark-blue);
+}
+
+/* POINTS COUNTER */
+
+.points-counter {
+	position: absolute;
+	top: 50px;
+	left: 500px;
 }

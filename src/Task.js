@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 
-export default function Task({ task }) {
-	const [complete, setComplete] = useState(false);
-
+export default function Task({ task, handleCompleteTask }) {
 	return (
 		<ul
 			key={task.id}
@@ -22,8 +20,8 @@ export default function Task({ task }) {
 			<input
 				type="checkbox"
 				className="task-list__task-checkbox"
-				checked={complete}
-				onChange={() => setComplete(!complete)}
+				checked={task.complete}
+				onChange={() => handleCompleteTask(task.id)}
 			></input>
 		</ul>
 	);
