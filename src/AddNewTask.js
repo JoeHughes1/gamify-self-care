@@ -7,6 +7,7 @@ export default function AddNewTask({ handleAddNewTask }) {
 			<div className="new-task__list">
 				{defaultTasks.map((task) => (
 					<DefaultTask
+						key={task.id}
 						name={task.name}
 						frequency={task.repeatFrequency}
 						handleAddNewTask={handleAddNewTask}
