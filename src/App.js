@@ -1,9 +1,12 @@
 import { useState } from "react";
 import React from "react";
-import CustomAddTask from "./CustomAddTask";
-import TaskList from "./TaskList";
-import AddNewTask from "./AddNewTask";
-import PointsCounter from "./PointsCounter";
+import PointsCounter from "./components/PointsCounter";
+import Header from "./components/Header";
+import NavBar from "./components/NavBar";
+import Home from "./pages/Home";
+import Stats from "./pages/Stats";
+import Profile from "./pages/Profile";
+import Settings from "./pages/Settings";
 
 export default function App() {
 	const [tasks, setTasks] = useState([]);
@@ -11,6 +14,12 @@ export default function App() {
 	const [points, setPoints] = useState(0);
 	const [repeat, setRepeat] = useState(false);
 	const [frequency, setFrequency] = useState("daily");
+
+	const [page, setPage] = useState("home");
+
+	function handleChangePage(page) {
+		setPage(page);
+	}
 
 	function handleCompleteTask(id) {
 		setTasks(
@@ -54,28 +63,31 @@ export default function App() {
 
 	return (
 		<>
-			<h1>Gamify Self Care</h1>
-			<div className="task-list">
-				<TaskList
-					tasks={tasks}
-					handleCompleteTask={handleCompleteTask}
-				/>
-			</div>
-			<div className="custom-add-task__container">
-				<CustomAddTask
-					onSubmit={handleSubmitCustom}
-					taskName={taskName}
-					setTaskName={setTaskName}
-					repeat={repeat}
-					setRepeat={setRepeat}
-					frequency={frequency}
-					setFrequency={setFrequency}
-				/>
-			</div>
-			<div>
-				<AddNewTask handleAddNewTask={handleAddNewTask} />
-			</div>
-			<PointsCounter points={points} />
+			<Header />
+			<NavBar onChangePage={handleChangePage} page={page} />
+			<main>
+				{page === "home" ? (
+					<Home
+						tasks={tasks}
+						handleCompleteTask={handleCompleteTask}
+						onSubmit={handleSubmitCustom}
+						taskName={taskName}
+						setTaskName={setTaskName}
+						repeat={repeat}
+						setRepeat={setRepeat}
+						frequency={frequency}
+						setFrequency={setFrequency}
+						handleAddNewTask={handleAddNewTask}
+					/>
+				) : page === "stats" ? (
+					<Stats />
+				) : page === "profile" ? (
+					<Profile />
+				) : (
+					<Settings />
+				)}
+			</main>
+			<footer></footer>
 		</>
 	);
 }

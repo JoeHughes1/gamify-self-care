@@ -13,6 +13,40 @@ li {
 	list-style: none;
 }
 
+/* HEADER */
+
+header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	height: 100px;
+	padding: 0px 50px;
+
+	border-bottom: 1px solid gray;
+}
+
+.profile-picture {
+	border-radius: 50%;
+}
+
+.nav-bar {
+	display: flex;
+	gap: 20px;
+	font-size: 20px;
+
+	padding-left: 50px;
+}
+
+.nav-bar__active-item {
+	border-bottom: 2px solid var(--dark-blue);
+	font-weight: 600;
+}
+
+.nav-bar > li:hover {
+	font-weight: 600;
+	cursor: pointer;
+}
+
 /* TASK LIST */
 
 .task-list {
@@ -50,6 +84,7 @@ li {
 	justify-content: space-between;
 	align-items: center;
 	padding: 0px 10px;
+	font-size: 20px;
 
 	border-top: 1px solid gray;
 	border-bottom: 1px solid gray;
