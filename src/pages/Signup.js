@@ -26,6 +26,8 @@ export default function SignUp() {
 			});
 	};
 
+	//TODO add error message if password is not secure enough
+
 	return (
 		<div className="signup-page__container">
 			<div className="signup-page">

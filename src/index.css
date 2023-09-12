@@ -22,6 +22,10 @@ a:hover {
 	cursor: pointer;
 }
 
+.error-message {
+	color: red;
+}
+
 /* SIGNUP PAGE  */
 
 .signup-page__container {

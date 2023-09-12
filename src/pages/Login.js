@@ -5,9 +5,11 @@ import { auth } from "../firebase";
 
 export default function Login() {
 	const navigate = useNavigate();
+	let wrongPassword = false;
 
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
+	const [error, setError] = useState("");
 
 	const onLogin = (e) => {
 		e.preventDefault();
@@ -16,15 +18,19 @@ export default function Login() {
 			.then((userCredential) => {
 				//Signed in
 				const user = userCredential.user;
+				setError("");
 				navigate("/home");
 				console.log(user);
 			})
 			.catch((error) => {
 				const errorCode = error.code;
 				const errorMessage = error.errorMessage;
+				setError(errorCode);
 				console.log(errorCode, errorMessage);
 			});
 	};
+
+	//TODO add error message when incorrect password is entered
 
 	return (
 		<div className="signup-page__container">
@@ -54,6 +60,9 @@ export default function Login() {
 						Log In
 					</button>
 				</form>
+				{error === "auth/wrong-password" && (
+					<p className="error-message">sorry, incorrect password</p>
+				)}
 				<p>
 					Don't have an account?{" "}
 					<a href="sign-up">create new account</a>
