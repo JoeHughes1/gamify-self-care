@@ -13,6 +13,51 @@ li {
 	list-style: none;
 }
 
+a {
+	color: white;
+}
+
+a:hover {
+	color: var(--dark-blue);
+	cursor: pointer;
+}
+
+/* SIGNUP PAGE  */
+
+.signup-page__container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.signup-page {
+	display: flex;
+	flex-direction: column;
+	width: 500px;
+}
+.signup-page h1,
+h2 {
+	text-align: center;
+}
+
+.signup-page form {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+}
+
+.signup-page input {
+	height: 20px;
+	width: 80%;
+}
+
+.create-account-button {
+	background-color: var(--dark-blue);
+	color: white;
+	height: 50px;
+	width: 100px;
+}
+
 /* HEADER */
 
 header {
@@ -45,6 +90,20 @@ header {
 .nav-bar > li:hover {
 	font-weight: 600;
 	cursor: pointer;
+}
+
+.header button {
+	background-color: var(--dark-blue);
+	color: white;
+	width: 60px;
+	height: 40px;
+}
+
+.header > div {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 10px;
 }
 
 /* TASK LIST */

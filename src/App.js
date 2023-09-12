@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import React from "react";
 import PointsCounter from "./components/PointsCounter";
 import Header from "./components/Header";
@@ -7,6 +7,8 @@ import Home from "./pages/Home";
 import Stats from "./pages/Stats";
 import Profile from "./pages/Profile";
 import Settings from "./pages/Settings";
+import { onAuthStateChanged } from "firebase/auth";
+import { auth } from "./firebase";
 
 export default function App() {
 	const [tasks, setTasks] = useState([]);
@@ -16,6 +18,17 @@ export default function App() {
 	const [frequency, setFrequency] = useState("daily");
 
 	const [page, setPage] = useState("home");
+
+	useEffect(() => {
+		onAuthStateChanged(auth, (user) => {
+			if (user) {
+				const uid = user.uid;
+				console.log("uid", uid);
+			} else {
+				console.log("user is logged out");
+			}
+		});
+	});
 
 	function handleChangePage(page) {
 		setPage(page);
