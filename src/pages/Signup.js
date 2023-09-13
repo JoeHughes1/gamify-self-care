@@ -1,6 +1,6 @@
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { useState } from "react";
-import { Navigate, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { auth } from "../firebase";
 
 export default function SignUp() {
@@ -38,6 +38,7 @@ export default function SignUp() {
 					<input
 						type="text"
 						label="Email Address"
+						id="email-address"
 						placeholder="email"
 						value={email}
 						onChange={(e) => setEmail(e.target.value)}
@@ -47,6 +48,7 @@ export default function SignUp() {
 					<input
 						type="password"
 						label="Password"
+						id="password"
 						placeholder="password"
 						value={password}
 						onChange={(e) => setPassword(e.target.value)}

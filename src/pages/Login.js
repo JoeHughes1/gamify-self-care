@@ -5,7 +5,6 @@ import { auth } from "../firebase";
 
 export default function Login() {
 	const navigate = useNavigate();
-	let wrongPassword = false;
 
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
@@ -18,9 +17,9 @@ export default function Login() {
 			.then((userCredential) => {
 				//Signed in
 				const user = userCredential.user;
-				setError("");
 				navigate("/home");
 				console.log(user);
+				setError("");
 			})
 			.catch((error) => {
 				const errorCode = error.code;
@@ -42,6 +41,7 @@ export default function Login() {
 					<input
 						type="text"
 						label="Email Address"
+						id="email-address"
 						placeholder="email"
 						value={email}
 						onChange={(e) => setEmail(e.target.value)}
@@ -51,6 +51,7 @@ export default function Login() {
 					<input
 						type="password"
 						label="Password"
+						id="password"
 						placeholder="password"
 						value={password}
 						onChange={(e) => setPassword(e.target.value)}

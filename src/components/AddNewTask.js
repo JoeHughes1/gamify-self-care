@@ -1,6 +1,6 @@
 import { defaultTasks } from "./DefaultTasks";
 
-export default function AddNewTask({ handleAddNewTask }) {
+export default function AddNewTask({ handleAddNewTask, onClickCustom }) {
 	return (
 		<div className="new-task__container">
 			<h2>ADD NEW TASK</h2>
@@ -14,8 +14,8 @@ export default function AddNewTask({ handleAddNewTask }) {
 						task={task}
 					/>
 				))}
-				<AddCustomTaskButton />
 			</div>
+			<AddCustomTaskButton onClickCustom={onClickCustom} />
 		</div>
 	);
 }
@@ -29,6 +29,10 @@ function DefaultTask({ name, frequency, handleAddNewTask, task }) {
 	);
 }
 
-function AddCustomTaskButton() {
-	return <div className="add-custom-task-button">ADD CUSTOM TASK</div>;
+function AddCustomTaskButton({ onClickCustom }) {
+	return (
+		<div className="add-custom-task-button" onClick={onClickCustom}>
+			ADD CUSTOM TASK
+		</div>
+	);
 }

@@ -37,7 +37,7 @@ export default function App() {
 		setTasks(
 			tasks.map((task) => {
 				if (task.id === id) {
-					setPoints((prev) => prev + task.points);
+					if (!task.complete) setPoints((prev) => prev + task.points);
 					return { ...task, complete: !task.complete };
 				}
 				return task;
@@ -90,6 +90,7 @@ export default function App() {
 						frequency={frequency}
 						setFrequency={setFrequency}
 						handleAddNewTask={handleAddNewTask}
+						points={points}
 					/>
 				) : page === "stats" ? (
 					<Stats />
