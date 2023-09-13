@@ -68,7 +68,9 @@ export default function App() {
 
 	//handles clicking on default task from ADD NEW TASK list
 	function handleAddNewTask(task) {
-		setTasks([...tasks, task]);
+		if (!tasks.includes(task)) {
+			setTasks([...tasks, task]);
+		}
 
 		console.log(task);
 	}

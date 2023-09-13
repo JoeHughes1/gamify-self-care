@@ -16,6 +16,7 @@ export default function Home(props) {
 
 	//shows ADD CUSTOM TASK window
 	function handleClickCustom() {
+		setAddTask(false);
 		setAddCustomTask(!addCustomTask);
 	}
 
@@ -30,7 +31,6 @@ export default function Home(props) {
 				<TaskListComplete
 					tasks={props.tasks}
 					handleCompleteTask={props.handleCompleteTask}
-					onClickAdd={handleClickAdd}
 				/>
 			</div>
 
@@ -44,6 +44,7 @@ export default function Home(props) {
 						setRepeat={props.setRepeat}
 						frequency={props.frequency}
 						setFrequency={props.setFrequency}
+						onClickCustom={handleClickCustom}
 					/>
 				</div>
 			)}
@@ -53,6 +54,7 @@ export default function Home(props) {
 					<AddNewTask
 						handleAddNewTask={props.handleAddNewTask}
 						onClickCustom={handleClickCustom}
+						onClickAdd={handleClickAdd}
 					/>
 				</div>
 			)}

@@ -1,9 +1,18 @@
 import { defaultTasks } from "./DefaultTasks";
 
-export default function AddNewTask({ handleAddNewTask, onClickCustom }) {
+export default function AddNewTask({
+	handleAddNewTask,
+	onClickCustom,
+	onClickAdd,
+}) {
 	return (
 		<div className="new-task__container">
-			<h2>ADD NEW TASK</h2>
+			<div className="new-task__header">
+				<h2>ADD NEW TASK</h2>
+				<button className="x-button" onClick={onClickAdd}>
+					X
+				</button>
+			</div>
 			<div className="new-task__list">
 				{defaultTasks.map((task) => (
 					<DefaultTask
