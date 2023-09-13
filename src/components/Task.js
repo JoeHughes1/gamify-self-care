@@ -6,6 +6,12 @@ export default function Task({ task, handleCompleteTask }) {
 				task.complete ? "task-list__task complete" : "task-list__task"
 			}
 		>
+			<input
+				type="checkbox"
+				className="task-list__task-checkbox"
+				checked={task.complete}
+				onChange={() => handleCompleteTask(task.id)}
+			></input>
 			<h5>{task.name}</h5>
 			{task.repeat ? (
 				<p className="task-list__task-repeats">
@@ -15,12 +21,6 @@ export default function Task({ task, handleCompleteTask }) {
 				""
 			)}
 			<p className="task-list__task-pts">{task.points} pts</p>
-			<input
-				type="checkbox"
-				className="task-list__task-checkbox"
-				checked={task.complete}
-				onChange={() => handleCompleteTask(task.id)}
-			></input>
 		</ul>
 	);
 }
