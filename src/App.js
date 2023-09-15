@@ -27,7 +27,7 @@ export default function App() {
 				console.log("user is logged out");
 			}
 		});
-	});
+	}, []);
 
 	function handleChangePage(page) {
 		setPage(page);
